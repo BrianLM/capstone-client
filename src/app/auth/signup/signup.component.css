@@ -1,0 +1,21 @@
+.signup-container {
+  margin: auto;
+  width: 25%;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+
+.input-group-addon {
+  color: rgb(255, 255, 255);
+background-color: rgb(50, 118, 177);
+border-color: rgb(40, 94, 142);
+}
+
+.btn {
+  margin-top: 10px;
+}
+::-webkit-input-placeholder {
+   text-align:right;
+ }
