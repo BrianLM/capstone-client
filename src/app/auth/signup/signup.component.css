@@ -1,21 +1,40 @@
 .signup-container {
-  margin: auto;
-  width: 25%;
-}
-
-.input-group {
-  margin-bottom: 10px;
+  margin-left:  auto;
+  width: 75%;
 }
 
 .input-group-addon {
   color: rgb(255, 255, 255);
-background-color: rgb(50, 118, 177);
-border-color: rgb(40, 94, 142);
+  background-color: rgb(50, 118, 177);
+  border-color: rgb(40, 94, 142);
+}
+
+.signup-container > :first-child > :first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 10px;
+}
+
+.signup-container > :first-child > :last-child {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 10px;
+}
+
+.signup-container > :nth-child(2) > :last-child, :first-child {
+  border-radius: 0;
+}
+
+.signup-container > :nth-child(3) > :last-child, :first-child {
+  border-radius: 0;
 }
 
 .btn {
-  margin-top: 10px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
+
 ::-webkit-input-placeholder {
    text-align:right;
  }
