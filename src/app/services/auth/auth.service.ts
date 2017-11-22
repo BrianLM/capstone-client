@@ -15,6 +15,7 @@ export class AuthService {
   getUserToken() {
     return this.user.token
   }
+
   signIn(email: string, password: string) {
     // Create the credentials object.
     let credentials = {

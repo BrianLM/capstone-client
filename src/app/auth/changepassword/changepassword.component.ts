@@ -23,7 +23,9 @@ export class ChangepasswordComponent implements OnInit {
       this.router.navigate(['/home'])
     }
     this.auth.passwordChanged = false
+    this.auth.pwcError = false
   }
+
   goHome(){
     this.router.navigate(['/home'])
   }
