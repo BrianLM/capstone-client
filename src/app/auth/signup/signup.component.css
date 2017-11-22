@@ -3,10 +3,16 @@
   width: 75%;
 }
 
-.input-group-addon {
+.input-group-addon.success {
   color: rgb(255, 255, 255);
   background-color: rgb(50, 118, 177);
   border-color: rgb(40, 94, 142);
+}
+
+.input-group-addon.danger {
+  color: rgb(255, 255, 255);
+  background-color: rgb(217, 83, 79);
+  border-color: rgb(212, 63, 58);
 }
 
 .signup-container > :first-child > :first-child {

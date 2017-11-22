@@ -2,21 +2,21 @@
   <div class="signup-container ">
 
     <div class="input-group input-group-lg">
-      <span class="input-group-addon">Email</span>
+      <span [ngClass]="{'danger': auth.signUpError}" class="input-group-addon success">Email</span>
       <input class="form-control" type="text" name="email" [(ngModel)]="newUser.email" placeholder="Your email address" required>
     </div>
 
     <div class="input-group input-group-lg">
-      <span class="input-group-addon">Password</span>
+      <span [ngClass]="{'danger': auth.signUpError}" class="input-group-addon success">Password</span>
       <input class="form-control" type="text" name="password" [(ngModel)]="newUser.password" placeholder="Password" required>
     </div>
 
     <div class="input-group input-group-lg">
-      <span class="input-group-addon">Confirm</span>
+      <span [ngClass]="{'danger': auth.signUpError}" class="input-group-addon success">Confirm</span>
       <input class="form-control" type="text" name="password_confirmation" [(ngModel)]="newUser.password_confirmation" placeholder="Confirm Password" required>
     </div>
 
-    <input class="btn btn-primary btn-lg" (click)="signUp()" type="submit" value="Sign Up"/>
+    <input [ngClass]="{'btn-danger': auth.signUpError}" class="btn btn-primary btn-lg" (click)="signUp()" type="submit" value="Sign Up"/>
 
   </div>
 </form>

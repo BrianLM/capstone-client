@@ -3,7 +3,7 @@
   width: 75%;
 }
 
-.input-group-addon {
+.input-group-addon.success {
   background-color: rgb(50, 118, 177);
   border-color: rgb(40, 94, 142);
   color: rgb(255, 255, 255);
@@ -25,6 +25,12 @@
 
 .si-r {
   border-right: 6px dashed #b2b2b2;
+}
+
+.input-group-addon.danger {
+  color: rgb(255, 255, 255);
+  background-color: rgb(217, 83, 79);
+  border-color: rgb(212, 63, 58);
 }
 
 .btn {

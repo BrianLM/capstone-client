@@ -22,6 +22,10 @@ export class ChangepasswordComponent implements OnInit {
     if (!this.auth.user) {
       this.router.navigate(['/home'])
     }
+    this.auth.passwordChanged = false
+  }
+  goHome(){
+    this.router.navigate(['/home'])
   }
 
   changePassword() {

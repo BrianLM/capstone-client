@@ -30,10 +30,10 @@ export class AuthService {
         // Save the response to user
         response => {
           this.user = JSON.parse(response['_body']).user
-          this.signUpError = false
+          this.signInError = false
           this.router.navigate(['/home'])
         },
-        err => this.signUpError = true
+        err => this.signInError = true
       )
   }
 
@@ -53,10 +53,10 @@ export class AuthService {
         response => {
           // Send the existing credentials back to the server to log in the new user
           this.signIn(credentials.credentials.email, credentials.credentials.password)
-          tthis.signInError = true
+          this.signUpError = false
           this.router.navigate(['/home'])
         },
-        err => this.signInError = true
+        err => this.signUpError = true
       )
   }
 
@@ -100,7 +100,10 @@ export class AuthService {
           this.passwordChanged = true
           this.pwcError = false
         },
-        err => this.pwcError = true
+        err => {
+          this.passwordChanged = false
+          this.pwcError = true
+        }
       )
   }
   constructor(
