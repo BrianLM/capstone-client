@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -24,7 +25,10 @@ export class AuthService {
       this.http.post(environment.apiOrigin + '/sign-in', credentials)
         .subscribe(
           // Save the response to user
-          response => this.user = JSON.parse(response['_body']).user,
+          response => {
+            this.user = JSON.parse(response['_body']).user
+            this.router.navigate(['/home'])
+          },
           err => console.log(err)
         )
     }
@@ -88,6 +92,7 @@ export class AuthService {
         )
     }
     constructor(
-      private http: Http
+      private http: Http,
+      private router: Router
     ) { }
 }
