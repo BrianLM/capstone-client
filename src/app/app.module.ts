@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './services/auth/auth.service';
@@ -23,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AuthModule,
+    BsDropdownModule.forRoot(),
     AuthRoutingModule,
     HttpModule,
     FormsModule,
