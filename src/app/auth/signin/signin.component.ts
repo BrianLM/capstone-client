@@ -10,7 +10,7 @@ export class SigninComponent implements OnInit {
   user = <any>{}
 
   constructor(
-    private auth: AuthService
+    public auth: AuthService
   ) { }
 
   ngOnInit() {
