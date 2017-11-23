@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { GamenavComponent } from './gamenav/gamenav.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     AuthComponent,
     HomeComponent,
+    GamenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { AppRoutingModule } from './app-routing.module';
     AuthRoutingModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
