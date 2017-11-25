@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpRoutingModule } from '../explore/exp-routing.module'
 
 @Component({
   selector: 'app-gamenav',
