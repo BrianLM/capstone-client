@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent implements OnInit {
-
+  area: string
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExploreComponent } from '../explore.component'
 
 @Component({
   selector: 'app-area',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public where: ExploreComponent
+  ) { }
 
   ngOnInit() {
   }
