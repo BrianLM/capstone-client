@@ -11,7 +11,7 @@
     <div class="carousel-inner" (click)="goExplore()">
       <img src="{{images[imgIndex].img}}" alt="area">
       <div class="area">
-        {{images[imgIndex].name}}
+        {{images[imgIndex].name | uppercase}}
       </div>
       <div class="desc">
         {{images[imgIndex].desc}}

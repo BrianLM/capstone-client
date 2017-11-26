@@ -14,22 +14,22 @@ export class IndexComponent implements OnInit {
     {
       desc: 'Hot and unforgiving. You can gather stones here.',
       img: "../../../assets/desert.jpg",
-      name: 'Desert'
+      name: 'desert'
     },
     {
       desc: 'Lush and green, teeming with life. You may find lumber here.',
       img: "../../../assets/forest.jpg",
-      name: 'Forest'
+      name: 'forest'
     },
     {
       desc: 'Calm rolling hills as far as you can see. Grains are found in this area.',
       img: "../../../assets/plains.jpg",
-      name: 'Plains'
+      name: 'plains'
     },
     {
       desc: 'Rough terain that touches the sky. You may find Ore here. ',
       img: "../../../assets/mountain.jpg",
-      name: 'Mountain'
+      name: 'mountain'
     }
   ]
 

@@ -1,5 +1,6 @@
 .container {
-  height: 75vh;
+  background-color: #222;
+  height: 77vh;
   width: 100%;
 }
 
@@ -25,4 +26,8 @@ div {
   bottom: 8px;
   position: absolute;
   right: 16px;
+}
+
+.carousel-slider {
+  height: 75vh;
 }

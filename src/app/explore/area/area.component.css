@@ -1,0 +1,72 @@
+.area-bg {
+  background-color: #222;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 77vh;
+  width: 100%;
+}
+
+.area-bg::before {
+  background-color: #000;
+  content: '';
+  display: block;
+  height: 100%;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+}
+
+.action {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  bottom: 0;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.glyphicon-flash {
+  color: yellow;
+}
+
+.desert {
+  background-image: url('../../../assets/desert.jpg');
+}
+.desert.inner-area {
+  background-image: url('../../../assets/desert_path.jpg');
+}
+.mountain {
+  background-image: url('../../../assets/mountain.jpg');
+}
+.mountain.inner-area {
+  background-image: url('../../../assets/mountain_path.jpg');
+}
+.plains {
+  background-image: url('../../../assets/plains.jpg');
+}
+.plains.inner-area  {
+  background-image: url('../../../assets/plains_path.jpg');
+}
+.forest {
+  background-image: url('../../../assets/forest.jpg');
+}
+.forest.inner-area  {
+  background-image: url('../../../assets/forest_path.jpg');
+}
+
+.inner-area {
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  height: 50vh;
+  left: 33%;
+  margin: auto;
+  position: absolute;
+  top: 225px;
+  width: 33%;
+}

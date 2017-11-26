@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExploreComponent } from '../explore.component'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-area',
@@ -9,10 +10,14 @@ import { ExploreComponent } from '../explore.component'
 export class AreaComponent implements OnInit {
 
   constructor(
-    public where: ExploreComponent
+    public where: ExploreComponent,
+    public router: Router
   ) { }
 
   ngOnInit() {
+    if (!this.where.area) {
+      this.router.navigate(['/home'])
+    }
   }
 
 }
