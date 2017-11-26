@@ -1,7 +1,8 @@
 <div class="{{where.area.name}} area-bg">
   <div id="content">
     <div class="inner-area {{where.area.name}}">
-      <button class="action btn-success">Move Forward ( 1 <i class="glyphicon glyphicon-flash"></i>)</button>
+      <button *ngIf="where.area.name" class="action btn-success">Move Forward ( 1 <i class="glyphicon glyphicon-flash"></i>)</button>
+      <button *ngIf="!where.area.name" class="action btn-warning">Attack ( 1 <i class="glyphicon glyphicon-flash"></i>)</button>
     </div>
   </div>
 </div>
