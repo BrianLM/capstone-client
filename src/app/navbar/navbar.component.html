@@ -12,10 +12,10 @@
       <ul class="nav navbar-nav">
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="auth.user == null"><a routerLink="/auth/signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="auth.getLocal('email') == null"><a routerLink="/auth/signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
-        <li *ngIf="auth.user" class="dropdown" dropdown>
-          <a dropdownToggle role="button">{{auth.user.email}} <span class="caret"></span></a>
+        <li *ngIf="auth.getLocal('email') !== null" class="dropdown" dropdown>
+          <a dropdownToggle role="button">{{auth.getLocal('email')}} <span class="caret"></span></a>
           <ul *dropdownMenu class="dropdown-menu">
             <li><a routerLink="/auth/changepassword">Change Password</a></li>
             <li><a (click)="signOut()">Sign Out</a></li>

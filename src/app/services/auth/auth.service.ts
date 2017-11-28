@@ -32,6 +32,9 @@ export class AuthService {
         response => {
           this.user = JSON.parse(response['_body']).user
           this.signInError = false
+          for (let key in this.user) {
+            localStorage.setItem(key, this.user[key])
+          }
           this.router.navigate(['/home'])
         },
         err => this.signInError = true
@@ -66,13 +69,14 @@ export class AuthService {
     let config = {}
 
     // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
     // Make the delete request to URL, and add the token from Config.
-    this.http.delete(environment.apiOrigin + '/sign-out/' + this.user.id, config)
+    this.http.delete(environment.apiOrigin + '/sign-out/' + localStorage.getItem('id'), config)
       .subscribe(
         // Remove the logged in user.
         data => {
           this.user = null
+          localStorage.clear()
           this.router.navigate(['/home'])
       },
         err => console.log(err)
@@ -92,7 +96,7 @@ export class AuthService {
     let config = {}
 
     // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + this.getUserToken()}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
 
     // Make the patch request to URL, add the password data and token from Config.
     this.http.patch(environment.apiOrigin + '/change-password/' + this.user.id, passwords, config)
@@ -107,6 +111,12 @@ export class AuthService {
         }
       )
   }
+
+  getLocal(id: any) {
+    return localStorage.getItem(id)
+  }
+
+
   constructor(
     private http: Http,
     private router: Router
