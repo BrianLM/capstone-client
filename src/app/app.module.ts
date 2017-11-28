@@ -20,6 +20,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GamenavComponent } from './gamenav/gamenav.component';
+import { FarmModule } from './farm/farm.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { GamenavComponent } from './gamenav/gamenav.component';
     ExpRoutingModule,
     AppRoutingModule,
     ExploreModule,
+    FarmModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
