@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { GamenavComponent } from './gamenav/gamenav.component';
 import { FarmModule } from './farm/farm.module';
+import { ProfileService } from './services/profile/profile.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { FarmModule } from './farm/farm.module';
     ExploreModule,
     FarmModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
