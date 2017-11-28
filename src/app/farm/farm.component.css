@@ -1,0 +1,9 @@
+.farm-bg {
+  background-color: #222;
+  background-image: url('../../assets/farm-closed.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 77vh;
+  width: 100%;
+}
