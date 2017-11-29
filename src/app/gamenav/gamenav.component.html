@@ -1,12 +1,14 @@
 <div *ngIf="auth.getLocal('email') !== null" class="full-border">
   <div class="inner-block">
     <div class="row">
-      <div class="col-sm-3 container bg-g">
-        <img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" src="../../assets/self.png">
-        <div class="overlay">
-          <div class="text text-black">About you</div>
+      <a routerLink="user">
+          <div class="col-sm-3 container bg-g">
+          <img [ngClass]="{'active bg-g': auth.getLocal('route') == 'user'}" src="../../assets/self.png">
+          <div class="overlay">
+            <div class="text text-black">About you</div>
+          </div>
         </div>
-      </div>
+      </a>
       <div class="col-sm-3">
         <a routerLink="/explore/index"><img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" src="../../assets/explore.jpeg"></a>
       </div>

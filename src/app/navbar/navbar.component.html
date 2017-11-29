@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="auth.getLocal('email') == null"><a routerLink="/auth/signin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
-        <li *ngIf="auth.getLocal('energy') !== null"><a>Energy {{auth.getLocal('energy')}}<i class="glyphicon glyphicon-flash"></i></a></li>
+        <li *ngIf="auth.getLocal('user_profile') !== null"><a>Energy {{ux.energy}}<i class="glyphicon glyphicon-flash"></i></a></li>
         <li *ngIf="auth.getLocal('email') !== null" class="dropdown" dropdown>
           <a dropdownToggle role="button">{{auth.getLocal('email')}} <span class="caret"></span></a>
           <ul *dropdownMenu class="dropdown-menu">

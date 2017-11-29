@@ -22,6 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { GamenavComponent } from './gamenav/gamenav.component';
 import { FarmModule } from './farm/farm.module';
 import { ProfileService } from './services/profile/profile.service';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { LevelsService } from './services/levels/levels.service';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { ProfileService } from './services/profile/profile.service';
     AuthComponent,
     HomeComponent,
     GamenavComponent,
+    StatisticsComponent,
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -44,7 +47,7 @@ import { ProfileService } from './services/profile/profile.service';
     ExploreModule,
     FarmModule,
   ],
-  providers: [AuthService, ProfileService],
+  providers: [AuthService, ProfileService, LevelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
