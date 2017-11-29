@@ -26,6 +26,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { LevelsService } from './services/levels/levels.service';
 import { CreatureComponent } from './creature/creature.component';
 import { CreatureService } from './services/creature/creature.service';
+import { ExploreService } from './service/explore/explore.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { CreatureService } from './services/creature/creature.service';
     ExploreModule,
     FarmModule,
   ],
-  providers: [AuthService, ProfileService, LevelsService, CreatureService],
+  providers: [AuthService, ProfileService, LevelsService, CreatureService, ExploreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
