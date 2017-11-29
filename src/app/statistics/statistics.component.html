@@ -21,5 +21,30 @@
       <th>Maximum Energy</th>
       <td>{{maxEnergy}}</td>
     </tr>
+    <tr>
+      <th>Highest Forest area clear</th>
+      <td>
+        <p *ngIf="exploration.top_f === 0">You have not ventured here yet</p>
+        <p *ngIf="exploration.top_f !== 0">{{exploration.top_f}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Highest Desert area clear</th>
+      <td>
+        <p *ngIf="exploration.top_d === 0">You have not ventured here yet</p>
+        <p *ngIf="exploration.top_d !== 0">{{exploration.top_d}}</p></td>
+    </tr>
+    <tr>
+      <th>Highest Mountain area clear</th>
+      <td>
+        <p *ngIf="exploration.top_m === 0">You have not ventured here yet</p>
+        <p *ngIf="exploration.top_m !== 0">{{exploration.top_m}}</p></td>
+    </tr>
+    <tr>
+      <th>Highest Plains area clear</th>
+      <td>
+        <p *ngIf="exploration.top_p === 0">You have not ventured here yet</p>
+        <p *ngIf="exploration.top_p !== 0">{{exploration.top_p}}</p></td>
+    </tr>
   </table>
 </div>

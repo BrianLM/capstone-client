@@ -10,7 +10,7 @@ import { LevelsService } from '../services/levels/levels.service'
 })
 export class StatisticsComponent implements OnInit {
   user_profile: any
-
+  exploration: any
   neededToLevel: any
   maxEnergy: any
   constructor(
@@ -23,6 +23,7 @@ export class StatisticsComponent implements OnInit {
       this.router.navigate(['/home'])
     } else {
       this.user_profile = JSON.parse(localStorage.getItem('user_profile'))
+      this.exploration = JSON.parse(localStorage.getItem('exploration'))
       this.levelService.getLevels()
         .subscribe(
           response => {
