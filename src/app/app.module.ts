@@ -24,6 +24,8 @@ import { FarmModule } from './farm/farm.module';
 import { ProfileService } from './services/profile/profile.service';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LevelsService } from './services/levels/levels.service';
+import { CreatureComponent } from './creature/creature.component';
+import { CreatureService } from './services/creature/creature.service';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { LevelsService } from './services/levels/levels.service';
     HomeComponent,
     GamenavComponent,
     StatisticsComponent,
+    CreatureComponent,
   ],
   imports: [
     BsDropdownModule.forRoot(),
@@ -47,7 +50,7 @@ import { LevelsService } from './services/levels/levels.service';
     ExploreModule,
     FarmModule,
   ],
-  providers: [AuthService, ProfileService, LevelsService],
+  providers: [AuthService, ProfileService, LevelsService, CreatureService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
