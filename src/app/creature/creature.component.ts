@@ -10,6 +10,9 @@ import { CreatureService } from '../services/creature/creature.service'
 })
 export class CreatureComponent implements OnInit {
   creature: any
+  pointsAvailable: any
+  canAllot: string = ''
+  statBase: any = null
   constructor(
     public router: Router,
     public creatureService: CreatureService
@@ -20,8 +23,27 @@ export class CreatureComponent implements OnInit {
       this.router.navigate(['/home'])
     } else {
       this.creature = JSON.parse(localStorage.getItem('creature'))
-      console.log(this.creature)
+      this.pointsAvailable = JSON.parse(localStorage.getItem('user_profile')).stat_points
     }
   }
-
+  allocate(stat) {
+    this.canAllot = stat
+    if (this.pointsAvailable > 0) {
+      if (this.statBase === null) {
+        this.statBase = this.creature[`c_${stat}`]
+      }
+      this.creature[`c_${stat}`]++
+      this.pointsAvailable--
+    }
+  }
+  remove(stat) {
+    this.creature[`c_${stat}`]--
+    if (this.statBase < this.creature[`c_${stat}`]) {
+      this.pointsAvailable++
+    } else {
+      this.pointsAvailable++
+      this.statBase = null
+      this.canAllot = ''
+    }
+  }
 }

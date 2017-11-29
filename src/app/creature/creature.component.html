@@ -1,5 +1,6 @@
 <div class="container">
   <h4>Your creature</h4>
+  <p *ngIf="pointsAvailable">You have {{pointsAvailable}} point<span *ngIf="pointsAvailable >1">s</span> you can allot.</p>
   <table class="table table-responsive table-hover">
     <thead>
       <th></th>
@@ -9,39 +10,146 @@
     <tbody>
       <tr>
         <th>Health</th>
-        <td>{{creature.c_hp}}</td>
-        <td>{{creature.m_hp}}</td>
+        <td>
+          <span
+           *ngIf="creature.c_hp > statBase &&
+           canAllot === 'hp'"
+           class="glyphicon glyphicon-minus"
+           (click)="remove('hp')">
+         </span>
+          {{creature.c_hp}}
+          <span
+           *ngIf="creature.c_hp < creature.m_hp &&
+           pointsAvailable &&
+           (canAllot === '' || canAllot === 'hp')"
+           class="glyphicon glyphicon-plus"
+           (click)="allocate('hp')">
+         </span>
+         </td>
+
+        <td>{{creature.m_hp}} </td>
       </tr>
       <tr>
         <th>Strength</th>
-        <td>{{creature.c_str}}</td>
+        <td>
+          <span
+           *ngIf="creature.c_str > statBase &&
+           canAllot === 'str'"
+           class="glyphicon glyphicon-minus"
+           (click)="remove('str')">
+         </span>
+          {{creature.c_str}}
+          <span
+           *ngIf="creature.c_str < creature.m_str &&
+            pointsAvailable &&
+            (canAllot === '' || canAllot === 'str')"
+            class="glyphicon glyphicon-plus"
+            (click)="allocate('str')">
+          </span>
+          </td>
         <td>{{creature.m_str}}</td>
       </tr>
       <tr>
         <th>Defence</th>
-        <td>{{creature.c_def}}</td>
+        <td>
+          <span
+           *ngIf="creature.c_def > statBase &&
+           canAllot === 'def'"
+           class="glyphicon glyphicon-minus"
+           (click)="remove('def')">
+         </span>
+          {{creature.c_def}}
+          <span
+           *ngIf="creature.c_def < creature.m_def &&
+            pointsAvailable &&
+            (canAllot === '' || canAllot === 'def')"
+            class="	glyphicon glyphicon-plus"
+            (click)="allocate('def')">
+          </span>
+          </td>
         <td>{{creature.m_def}}</td>
       </tr>
       <tr>
         <th>Dexterity</th>
-        <td>{{creature.c_dex}}</td>
+        <td>
+          <span
+           *ngIf="creature.c_dex > statBase &&
+           canAllot === 'dex'"
+           class="glyphicon glyphicon-minus"
+           (click)="remove('dex')">
+         </span>
+          {{creature.c_dex}}
+          <span
+           *ngIf="creature.c_dex < creature.m_dex &&
+            pointsAvailable &&
+            (canAllot === '' || canAllot === 'dex')"
+            class="	glyphicon glyphicon-plus"
+            (click)="allocate('dex')">
+          </span>
+          </td>
         <td>{{creature.m_dex}}</td>
       </tr>
       <tr>
         <th>Speed</th>
-        <td>{{creature.c_spd}}</td>
+        <td>
+          <span
+           *ngIf="creature.c_spd > statBase &&
+           canAllot === 'spd'"
+           class="glyphicon glyphicon-minus"
+           (click)="remove('spd')">
+         </span>
+          {{creature.c_spd}}
+          <span
+           *ngIf="creature.c_spd < creature.m_spd &&
+           pointsAvailable &&
+           (canAllot === '' || canAllot === 'spd')"
+           class="glyphicon glyphicon-plus"
+           (click)="allocate('spd')">
+         </span>
+         </td>
         <td>{{creature.m_spd}}</td>
       </tr>
       <tr>
         <th>Intelligence</th>
-        <td>{{creature.c_int}}</td>
+        <td>
+          <span
+          *ngIf="creature.c_int > statBase &&
+          canAllot === 'int'"
+          class="glyphicon glyphicon-minus"
+          (click)="remove('int')">
+        </span>
+          {{creature.c_int}}
+          <span
+           *ngIf="creature.c_int < creature.m_int &&
+            pointsAvailable &&
+            (canAllot === '' || canAllot === 'int')"
+            class="glyphicon glyphicon-plus"
+            (click)="allocate('int')">
+          </span>
+          </td>
         <td>{{creature.m_int}}</td>
       </tr>
       <tr>
         <th>Sight</th>
-        <td>{{creature.c_sig}}</td>
+        <td>
+          <span
+          *ngIf="creature.c_sig > statBase &&
+          canAllot === 'sig'"
+          class="glyphicon glyphicon-minus"
+          (click)="remove('sig')">
+        </span>
+          {{creature.c_sig}}
+          <span
+           *ngIf="creature.c_sig < creature.m_sig &&
+            pointsAvailable &&
+            (canAllot === '' || canAllot === 'sig')"
+            class="	glyphicon glyphicon-plus"
+            (click)="allocate('sig')">
+          </span>
+          </td>
         <td>{{creature.m_sig}}</td>
       </tr>
   </tbody>
   </table>
+  <button *ngIf="canAllot !== ''" class="btn btn-success ">Save</button>
 </div>
