@@ -151,5 +151,10 @@
       </tr>
   </tbody>
   </table>
-  <button *ngIf="canAllot !== ''" class="btn btn-success ">Save</button>
+  <button *ngIf="canAllot !== ''" class="btn btn-success" (click)="makeChange()">Save</button>
+</div>
+<div class="container" *ngIf="canEvolve">
+  <h4>Congratulations, your creature can evolve!</h4>
+  <p>Evolution is a hard process on your creature, but it will be stronger in the long run. Current stats will drop slightly but it's maximum stats will increase.</p>
+  <button class="btn btn-success" (click)="evolve()">Evolve now?</button>
 </div>

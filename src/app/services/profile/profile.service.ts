@@ -20,11 +20,15 @@ export class ProfileService {
     })
   }
 
+  requestProfile() {
+    let config = {}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.get(environment.apiOrigin + '/users/' + localStorage.getItem('id'), config)
+  }
+
   getProfile() {
     if (localStorage.getItem('token')) {
-      let config = {}
-      config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-      this.http.get(environment.apiOrigin + '/users/' + localStorage.getItem('id'), config)
+      this.requestProfile()
         .subscribe(
           response => {
             const user = JSON.parse(response['_body']).user
@@ -40,5 +44,4 @@ export class ProfileService {
         )
       }
     }
-  }
 }
