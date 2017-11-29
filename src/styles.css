@@ -2,3 +2,15 @@
 .csm {
   margin-top: 25px;
 }
+
+a:hover {
+  color: #9d9d9d;
+  text-decoration: none
+}
+a:visited {
+  color:#9d9d9d;
+}
+
+a {
+  color: #9d9d9d
+}
