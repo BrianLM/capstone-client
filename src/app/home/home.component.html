@@ -1,6 +1,6 @@
 <h1>
   Welcome to {{app.title}}!
 </h1>
-<div *ngIf="!auth.user">
+<div *ngIf="auth.getLocal('email') == null">
   <h2>Log in to start playing.</h2>
 </div>

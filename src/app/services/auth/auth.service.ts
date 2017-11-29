@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Injectable()
 export class AuthService {
-  user: any
   pwcError: boolean = false
   signUpError: boolean = false
   signInError: boolean = false
   passwordChanged: boolean = false
-
-  getUserToken() {
-    return this.user.token
-  }
 
   signIn(email: string, password: string) {
     // Create the credentials object.
@@ -30,10 +25,10 @@ export class AuthService {
       .subscribe(
         // Save the response to user
         response => {
-          this.user = JSON.parse(response['_body']).user
+          const user = JSON.parse(response['_body']).user
           this.signInError = false
-          for (let key in this.user) {
-            localStorage.setItem(key, this.user[key])
+          for (let key in user) {
+            localStorage.setItem(key, user[key])
           }
           this.router.navigate(['/home'])
         },
@@ -75,7 +70,6 @@ export class AuthService {
       .subscribe(
         // Remove the logged in user.
         data => {
-          this.user = null
           localStorage.clear()
           this.router.navigate(['/home'])
       },
@@ -99,7 +93,7 @@ export class AuthService {
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
 
     // Make the patch request to URL, add the password data and token from Config.
-    this.http.patch(environment.apiOrigin + '/change-password/' + this.user.id, passwords, config)
+    this.http.patch(environment.apiOrigin + '/change-password/' + localStorage.getItem('id'), passwords, config)
       .subscribe(
         data => {
           this.passwordChanged = true
@@ -120,5 +114,11 @@ export class AuthService {
   constructor(
     private http: Http,
     private router: Router
-  ) { }
+  ) {
+      router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          localStorage.setItem('route', event.url.split('/', 2)[1])
+        }
+      })
+    }
 }

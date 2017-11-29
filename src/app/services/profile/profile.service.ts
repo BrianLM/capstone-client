@@ -18,7 +18,7 @@ export class ProfileService {
 
   getProfile() {
     let config = {}
-    config['headers'] = { Authorization:'Token token=' + this.auth.getUserToken()}
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
 
   }
 }
