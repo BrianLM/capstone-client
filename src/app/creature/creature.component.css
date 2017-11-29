@@ -1,0 +1,17 @@
+.container {
+  margin: auto;
+  margin-top: 25px;
+  width: 50%
+}
+
+h4 {
+  margin-bottom: 25px;
+}
+
+.c-h {
+  text-align: center;
+  border-right: 1px solid black;
+}
+td {
+  border-right: 1px solid black;
+}
