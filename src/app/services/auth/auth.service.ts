@@ -11,6 +11,7 @@ export class AuthService {
   signInError: boolean = false
   passwordChanged: boolean = false
 
+  token: any
   signIn(email: string, password: string) {
     // Create the credentials object.
     let credentials = {
@@ -27,9 +28,9 @@ export class AuthService {
         response => {
           const user = JSON.parse(response['_body']).user
           this.signInError = false
-          for (let key in user) {
-            localStorage.setItem(key, user[key])
-          }
+          this.token = user.token
+          localStorage.setItem('email', user.email)
+          localStorage.setItem('id', user.id)
           this.router.navigate(['/home'])
         },
         err => this.signInError = true
@@ -64,7 +65,7 @@ export class AuthService {
     let config = {}
 
     // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    config['headers'] = { Authorization:'Token token=' + this.token}
     // Make the delete request to URL, and add the token from Config.
     this.http.delete(environment.apiOrigin + '/sign-out/' + localStorage.getItem('id'), config)
       .subscribe(
@@ -90,7 +91,7 @@ export class AuthService {
     let config = {}
 
     // Set the headers key
-    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    config['headers'] = { Authorization:'Token token=' + this.token}
 
     // Make the patch request to URL, add the password data and token from Config.
     this.http.patch(environment.apiOrigin + '/change-password/' + localStorage.getItem('id'), passwords, config)

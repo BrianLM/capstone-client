@@ -22,7 +22,7 @@ export class ProfileService {
 
   getProfile() {
     let config = {}
-    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    config['headers'] = { Authorization:'Token token=' + this.auth.token}
     this.http.get(environment.apiOrigin + '/user_profiles/' + localStorage.getItem('id'), config)
       .subscribe(
         response => {
