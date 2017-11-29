@@ -19,7 +19,7 @@ export class ChangepasswordComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (!localStorage) {
+    if (!localStorage.getItem('token')) {
       this.router.navigate(['/home'])
     }
     this.auth.passwordChanged = false

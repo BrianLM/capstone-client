@@ -21,16 +21,18 @@ export class ProfileService {
   }
 
   getProfile() {
-    let config = {}
-    config['headers'] = { Authorization:'Token token=' + this.auth.token}
-    this.http.get(environment.apiOrigin + '/user_profiles/' + localStorage.getItem('id'), config)
-      .subscribe(
-        response => {
-          const user = JSON.parse(response['_body']).user_profile
-          for (let key in user) {
-            localStorage.setItem(key, user[key])
+    if (localStorage.getItem('token')) {
+      let config = {}
+      config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+      this.http.get(environment.apiOrigin + '/user_profiles/' + localStorage.getItem('id'), config)
+        .subscribe(
+          response => {
+            const user = JSON.parse(response['_body']).user_profile
+            for (let key in user) {
+              localStorage.setItem(key, user[key])
+            }
           }
-        }
-      )
+        )
+    }
   }
 }
