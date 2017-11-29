@@ -26,7 +26,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { LevelsService } from './services/levels/levels.service';
 import { CreatureComponent } from './creature/creature.component';
 import { CreatureService } from './services/creature/creature.service';
-import { ExploreService } from './service/explore/explore.service';
+import { ExploreService } from './services/explore/explore.service';
 
 
 @NgModule({
