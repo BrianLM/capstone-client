@@ -36,8 +36,8 @@ The API can be found here, [The API](https://github.com/BrianLM/capstone-api)
 ![Home page](https://github.com/BrianLM/capstone-client/blob/master/Site-Snapshot.png)
 
 ## Wireframe
-![Home page](https://github.com/BrianLM/capstone-client/blob/master/Capstone.001.jpeg)
-![User Screen](https://github.com/BrianLM/capstone-client/blob/master/Capstone.002.jpeg)
-![Creature Screen](https://github.com/BrianLM/capstone-client/blob/master/Capstone.003.jpeg)
-![Explore index](https://github.com/BrianLM/capstone-client/blob/master/Capstone.004.jpeg)
-![Exploring](https://github.com/BrianLM/capstone-client/blob/master/Capstone.005.jpeg)
+![Home page](https://github.com/BrianLM/capstone/capstone-client/blob/master/Capstone.001.jpeg)
+![User Screen](https://github.com/BrianLM/capstone/capstone-client/blob/master/Capstone.002.jpeg)
+![Creature Screen](https://github.com/BrianLM/capstone/capstone-client/blob/master/Capstone.003.jpeg)
+![Explore index](https://github.com/BrianLM/capstone/capstone-client/blob/master/Capstone.004.jpeg)
+![Exploring](https://github.com/BrianLM/capstone/capstone-client/blob/master/Capstone.005.jpeg)
