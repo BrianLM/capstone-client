@@ -75,9 +75,14 @@ export class AreaComponent implements OnInit {
     this.explore.moveForward(action)
       .subscribe(
         response => {
+          console.log(JSON.parse(response['_body']))
           localStorage.setItem('encounter', JSON.stringify(JSON.parse(response['_body']).exploration.encounter))
           localStorage.setItem('exploration', JSON.stringify(JSON.parse(response['_body']).exploration))
-          this.router.navigate(['/explore']).then(() => this.router.navigate(['/explore/area']))
+          if (JSON.parse(localStorage.getItem('exploration')).area) {
+            this.router.navigate(['/explore']).then(() => this.router.navigate(['/explore/area']))
+          } else {
+            this.router.navigate(['/explore'])
+          }
         }
       )
   }
