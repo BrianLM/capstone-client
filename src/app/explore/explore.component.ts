@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./explore.component.css']
 })
 export class ExploreComponent implements OnInit {
-  area: string
+  area = <any>{}
   constructor(
     private router: Router
   ) { }

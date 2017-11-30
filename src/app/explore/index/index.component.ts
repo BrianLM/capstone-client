@@ -39,6 +39,9 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (JSON.parse(localStorage.getItem('exploration')).area) {
+      this.router.navigate(['/explore/area'])
+    }
   }
 
   goExplore() {

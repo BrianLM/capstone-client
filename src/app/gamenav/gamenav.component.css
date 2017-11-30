@@ -33,6 +33,7 @@ img {
 
 img.active {
   opacity: 1;
+  outline: 2px green solid;
 }
 
 img:hover {

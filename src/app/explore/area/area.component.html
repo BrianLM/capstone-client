@@ -1,8 +1,23 @@
-<div class="{{where.area.name}} area-bg">
-  <div id="content">
-    <div class="inner-area {{where.area.name}}">
-      <button *ngIf="where.area.name" class="action btn-success">Move Forward ( 1 <i class="glyphicon glyphicon-flash"></i>)</button>
-      <button *ngIf="!where.area.name" class="action btn-warning">Attack ( 1 <i class="glyphicon glyphicon-flash"></i>)</button>
+<div class="{{where.area.name}} {{exploring}} area-bg">
+  <div class="inner-area {{where.area.name}} {{exploring}}">
+    <div *ngIf="!exploring">
+      <div class="difficulty">
+        <p>Difficulty
+          <span *ngIf="selectedDif > 1" class="glyphicon glyphicon-triangle-left" (click)="difDecrease()"></span>
+          {{selectedDif}}
+          <span *ngIf="selectedDif < maxDifficulty" class="glyphicon glyphicon-triangle-right" (click)="difIncrease()"></span>
+        </p>
+      </div>
+      <button class="set-out btn btn-primary" (click)="setOut()">Set out!</button>
     </div>
+
+    <button *ngIf="exploring" class="action btn-success" (click)="takeAction('move')">
+      Move Forward ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)
+    </button>
+
+    <button *ngIf="inBattle" class="action btn-warning" (click)="takeAction('attack')">
+      Attack ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)
+    </button>
+
   </div>
 </div>
