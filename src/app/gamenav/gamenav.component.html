@@ -10,7 +10,9 @@
         </div>
       </a>
       <div class="col-sm-3">
-        <a routerLink="/explore/index"><img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" src="../../assets/explore.jpeg"></a>
+        <a routerLink="/explore/index">
+          <img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" src="../../assets/explore.jpeg">
+      </a>
       </div>
       <a routerLink="farm">
           <div class="col-sm-3 container">

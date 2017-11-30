@@ -1,39 +1,31 @@
-import { Component, OnInit, NgZone, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CreatureService } from '../services/creature/creature.service'
-import { ProfileService } from '../services/profile/profile.service'
 
 @Component({
   selector: 'app-creature',
   templateUrl: './creature.component.html',
   styleUrls: ['./creature.component.css']
 })
-export class CreatureComponent implements OnInit, OnChanges {
+export class CreatureComponent implements OnInit {
+
   creature: any
   pointsAvailable: any
   canAllot: string = ''
   statBase: any = null
   pointsUsed: number = 0
-
-  storeCopy: any
-
   canEvolve: boolean
+
   constructor(
     public router: Router,
-    public creatureService: CreatureService,
-    public ux: ProfileService,
-    public zone: NgZone
+    public creatureService: CreatureService
   ) {
     this.creatureService.creature$.subscribe(
       result => {
         this.creature = result
       }
     )
-  }
-
-  ngOnChanges() {
-
   }
 
   ngOnInit() {
@@ -43,19 +35,6 @@ export class CreatureComponent implements OnInit, OnChanges {
       this.pointsAvailable = JSON.parse(localStorage.getItem('stat_points'))
     }
   }
-
-  // createState() {
-  //   // let creature = JSON.parse(localStorage.getItem('creature'))
-  //   //
-  //   // this.canEvolve = creature.c_hp === creature.m_hp &&
-  //   //                  creature.c_def === creature.m_def &&
-  //   //                  creature.c_dex === creature.m_dex &&
-  //   //                  creature.c_str === creature.m_str &&
-  //   //                  creature.c_spd === creature.m_spd &&
-  //   //                  creature.c_sig === creature.m_sig &&
-  //   //                  creature.c_int === creature.m_int
-  //   // this.creature = creature
-  // }
 
   allocate(stat) {
     this.canAllot = stat

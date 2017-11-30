@@ -14,7 +14,7 @@
     <div *ngIf="exploring" class="progress">
       <div class="progress-bar" [ngClass]="{'progress-bar-danger': inBattle, 'progress-bar-success': !inBattle}"
             role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width: towards}">
-        <span>{{(step / end) * 100}}% Complete - {{step}} / {{end}}</span>
+        <span>{{(exploration.step / exploration.end) * 100}}% Complete - {{exploration.step}} / {{exploration.end}}</span>
       </div>
     </div>
 
