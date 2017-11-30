@@ -2,12 +2,15 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
 import { Router, NavigationEnd } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AuthService } from '../auth/auth.service'
 
 @Injectable()
 export class ProfileService {
-  energy: any
+  energy: number
+
+  energy$ = new BehaviorSubject<number>(this.energy)
   constructor(
     private http: Http,
     private router: Router,
@@ -18,6 +21,11 @@ export class ProfileService {
         this.getProfile()
       }
     })
+  }
+
+  setEnergy(value: number) {
+    this.energy$.next(value)
+    this.energy = value
   }
 
   requestProfile() {
@@ -39,7 +47,7 @@ export class ProfileService {
                 localStorage.setItem(key, user[key])
               }
             }
-            this.energy = localStorage.getItem('energy')
+            this.setEnergy(parseInt(localStorage.getItem('energy')))
           }
         )
       }

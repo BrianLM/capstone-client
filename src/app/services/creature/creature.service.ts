@@ -1,13 +1,31 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Router, NavigationEnd } from '@angular/router';
+
 
 @Injectable()
 export class CreatureService {
 
+  creature: any
+  creature$ = new BehaviorSubject<any>(this.creature)
+
   constructor(
+    private router: Router,
     private http: Http
-  ) { }
+  ) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.setCreature(JSON.parse(localStorage.getItem('creature')))
+      }
+    })
+  }
+
+  setCreature(value: any) {
+    this.creature$.next(value)
+    this.creature = value
+  }
 
   sendStatRequest(stat: string, amount:number) {
     let creature = {'creature':{}}
