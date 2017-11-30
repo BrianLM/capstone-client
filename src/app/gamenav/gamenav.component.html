@@ -3,7 +3,7 @@
     <div class="row">
       <a routerLink="user">
           <div class="col-sm-3 container bg-g">
-          <img [ngClass]="{'active bg-g': auth.getLocal('route') == 'user'}" src="../../assets/self.png">
+          <img [ngClass]="{'active bg-g': auth.getLocal('route') == 'user'}" class="avatar">
           <div class="overlay">
             <div class="text text-black">About you</div>
           </div>
@@ -11,12 +11,12 @@
       </a>
       <div class="col-sm-3">
         <a routerLink="/explore/index">
-          <img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" src="../../assets/explore.jpeg">
+          <img [ngClass]="{'active': auth.getLocal('route') == 'explore'}" class="explore">
       </a>
       </div>
       <a routerLink="farm">
           <div class="col-sm-3 container">
-          <img [ngClass]="{'active': auth.getLocal('route') == 'farm'}" src="../../assets/signpost.jpg">
+          <img [ngClass]="{'active': auth.getLocal('route') == 'farm'}" class="farm">
           <div class="overlay">
             <div class="text">The farm</div>
           </div>
@@ -24,7 +24,7 @@
       </a>
       <a routerLink="creature">
         <div class="col-sm-3 container">
-          <img [ngClass]="{'active': auth.getLocal('route') == 'creature'}" src="../../assets/creature.jpg">
+          <img [ngClass]="{'active': auth.getLocal('route') == 'creature'}" class="creature">
           <div class="overlay">
             <div class="text text-down">Creature</div>
           </div>

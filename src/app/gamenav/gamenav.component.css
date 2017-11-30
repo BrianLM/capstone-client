@@ -13,6 +13,22 @@
   width: 425px
 }
 
+img.creature {
+  content: url("../../assets/creature.jpg");
+}
+
+img.explore {
+  content: url("../../assets/explore.jpg");
+}
+
+img.avatar {
+  content: url("../../assets/self.png");
+}
+
+img.farm {
+  content: url("../../assets/signpost.jpg");
+}
+
 .col-sm-3 {
   height: 100px;
   margin-top: 25px;

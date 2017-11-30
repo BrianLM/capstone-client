@@ -8,8 +8,7 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" (click)="goExplore()">
-      <img src="{{images[imgIndex].img}}" alt="area">
+    <div class="carousel-inner {{images[imgIndex].name}} area-bg" (click)="goExplore()">
       <div class="area">
         {{images[imgIndex].name | uppercase}}
       </div>
