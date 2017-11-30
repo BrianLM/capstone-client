@@ -11,11 +11,14 @@ import { ExploreService } from '../../services/explore/explore.service'
 })
 export class AreaComponent implements OnInit {
 
-  exploring: any
+  exploring: string
   inBattle: boolean
   maxDifficulty: number
   selectedDif: number
   energyRequired: number
+  step: number = 0
+  end: number = 0
+  towards: string
 
   constructor(
     public where: ExploreComponent,
@@ -25,16 +28,20 @@ export class AreaComponent implements OnInit {
 
   ngOnInit() {
     this.exploring = JSON.parse(localStorage.getItem('exploration')).area ? JSON.parse(localStorage.getItem('exploration')).area : false
-    let areaKey = `top_${this.exploring.substr(0,1)}`
-    console.log(this.exploring)
+    let areaKey
     if (!this.exploring) {
-      if (!this.where.area ) {
+      if (!this.where.area.name ) {
         this.router.navigate(['/home'])
       } else {
         areaKey = `top_${this.where.area.name.substr(0,1)}`
       }
+    } else {
+      areaKey = `top_${this.exploring.substr(0,1)}`
+      this.step = JSON.parse(localStorage.getItem('exploration')).step
+      this.end = JSON.parse(localStorage.getItem('exploration')).end
+      this.towards = ((this.step / this.end) * 100) + '%'
     }
-    this.inBattle = JSON.parse(localStorage.getItem('exploration')).encounter_id ? true : false
+    this.inBattle = JSON.parse(localStorage.getItem('encounter')) ? true : false
     this.maxDifficulty = JSON.parse(localStorage.getItem('exploration'))[areaKey]
     this.energyRequired = JSON.parse(localStorage.getItem('exploration')).dif ? (JSON.parse(localStorage.getItem('exploration')).dif / 10) + 1 : 1
     this.selectedDif = this.maxDifficulty + 1
@@ -55,13 +62,18 @@ export class AreaComponent implements OnInit {
     this.explore.startExploration(this.where.area.name.toLowerCase(), this.selectedDif)
       .subscribe(
         response => {
-          this.router.navigate(['/home']).then(() => this.router.navigate(['/explore/area']))
+          this.router.navigate(['/explore']).then(() => this.router.navigate(['/explore/area']))
         }
       )
   }
 
   takeAction(action) {
-    console.log(action)
+    this.explore.moveForward(action)
+      .subscribe(
+        response => {
+          this.router.navigate(['/explore']).then(() => this.router.navigate(['/explore/area']))
+        }
+      )
   }
 
 }

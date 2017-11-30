@@ -22,7 +22,7 @@ export class StatisticsComponent implements OnInit {
     if (!localStorage.getItem('token')) {
       this.router.navigate(['/home'])
     } else {
-      this.user_profile = JSON.parse(localStorage.getItem('user_profile'))
+      this.user_profile = localStorage
       this.exploration = JSON.parse(localStorage.getItem('exploration'))
       this.levelService.getLevels()
         .subscribe(

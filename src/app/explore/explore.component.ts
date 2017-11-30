@@ -16,5 +16,8 @@ export class ExploreComponent implements OnInit {
     if (!localStorage.getItem('token')) {
       this.router.navigate(['/home'])
     }
+    if (JSON.parse(localStorage.getItem('exploration')).area) {
+      this.router.navigate(['/explore/area'])
+    }
   }
 }

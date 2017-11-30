@@ -33,7 +33,7 @@ export class CreatureComponent implements OnInit {
 
   createState() {
     let creature = JSON.parse(localStorage.getItem('creature'))
-    this.pointsAvailable = JSON.parse(localStorage.getItem('user_profile')).stat_points
+    this.pointsAvailable = JSON.parse(localStorage.getItem('stat_points'))
     this.canEvolve = creature.c_hp === creature.m_hp &&
                      creature.c_def === creature.m_def &&
                      creature.c_dex === creature.m_dex &&

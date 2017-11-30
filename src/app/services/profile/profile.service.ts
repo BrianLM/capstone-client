@@ -23,7 +23,7 @@ export class ProfileService {
   requestProfile() {
     let config = {}
     config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
-    return this.http.get(environment.apiOrigin + '/users/' + localStorage.getItem('id'), config)
+    return this.http.get(environment.apiOrigin + '/user_profiles/' + localStorage.getItem('id'), config)
   }
 
   getProfile() {
@@ -31,7 +31,7 @@ export class ProfileService {
       this.requestProfile()
         .subscribe(
           response => {
-            const user = JSON.parse(response['_body']).user
+            const user = JSON.parse(response['_body']).user_profile
             for (let key in user) {
               if(typeof user[key] === 'object') {
                 localStorage.setItem(key, JSON.stringify(user[key]))
@@ -39,7 +39,7 @@ export class ProfileService {
                 localStorage.setItem(key, user[key])
               }
             }
-            this.energy = JSON.parse(localStorage.getItem('user_profile')).energy
+            this.energy = localStorage.getItem('energy')
           }
         )
       }
