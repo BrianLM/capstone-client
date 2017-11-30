@@ -1,13 +1,30 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Injectable()
 export class ExploreService {
 
+  exploration: any
+  exploration$ = new BehaviorSubject<any>(this.exploration)
+
   constructor(
+    private router: Router,
     private http: Http
-  ) { }
+  ) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.setExploration(JSON.parse(localStorage.getItem('exploration')))
+      }
+    })
+  }
+
+  setExploration(value: any) {
+    this.exploration$.next(value)
+    this.exploration = value
+  }
 
   startExploration (area: string, dif: number) {
     let config = {}

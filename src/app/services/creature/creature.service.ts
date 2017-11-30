@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Router, NavigationEnd } from '@angular/router';
 
-
 @Injectable()
 export class CreatureService {
 
