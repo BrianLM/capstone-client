@@ -18,6 +18,7 @@ export class AreaComponent implements OnInit {
   selectedDif: number
   energyRequired: number
   towards: string
+  encounter: any
 
   constructor(
     public where: ExploreComponent,
@@ -45,6 +46,7 @@ export class AreaComponent implements OnInit {
       this.towards = ((this.exploration.step / this.exploration.end) * 100) + '%'
     }
     this.inBattle = JSON.parse(localStorage.getItem('encounter')) ? true : false
+    this.encounter = this.inBattle ? JSON.parse(localStorage.getItem('encounter')).c_hp : 0
     this.maxDifficulty = JSON.parse(localStorage.getItem('exploration'))[areaKey] + 1
     this.energyRequired = JSON.parse(localStorage.getItem('exploration')).dif ? Math.round((JSON.parse(localStorage.getItem('exploration')).dif / 10) + 1) : 1
     this.selectedDif = this.maxDifficulty
@@ -75,12 +77,13 @@ export class AreaComponent implements OnInit {
     this.explore.moveForward(action)
       .subscribe(
         response => {
-          console.log(JSON.parse(response['_body']))
+          (JSON.parse(response['_body']))
           localStorage.setItem('encounter', JSON.stringify(JSON.parse(response['_body']).exploration.encounter))
           localStorage.setItem('exploration', JSON.stringify(JSON.parse(response['_body']).exploration))
           if (JSON.parse(localStorage.getItem('exploration')).area) {
             this.router.navigate(['/explore']).then(() => this.router.navigate(['/explore/area']))
           } else {
+            this.where.areaComplete = true
             this.router.navigate(['/explore'])
           }
         }

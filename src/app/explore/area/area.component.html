@@ -25,6 +25,6 @@
     <button *ngIf="inBattle" class="action btn-warning" (click)="takeAction('attack')">
       Attack ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)
     </button>
-
+    <div *ngIf="inBattle" class="encounter">You encountered an opponent. Remaining Health: {{encounter}}</div>
   </div>
 </div>

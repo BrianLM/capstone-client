@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ExploreComponent implements OnInit {
   area = <any>{}
+  areaComplete: boolean = false
+
   constructor(
     private router: Router
   ) { }

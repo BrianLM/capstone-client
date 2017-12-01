@@ -10,6 +10,14 @@ button:focus{
   text-shadow: 0 0 black, 0 3px black, 3px 0 black, 0 -3px black;
 }
 
+.encounter {
+  background-color:white;
+  width: 100%;
+  margin: auto;
+  top: 84%;
+  position: absolute;
+}
+
 .area-bg {
   background-color: #222;
   background-position: center;
