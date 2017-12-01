@@ -19,6 +19,7 @@ export class AreaComponent implements OnInit {
   energyRequired: number
   towards: string
   encounter: any
+  canGo: boolean
 
   constructor(
     public where: ExploreComponent,
@@ -50,6 +51,7 @@ export class AreaComponent implements OnInit {
     this.maxDifficulty = JSON.parse(localStorage.getItem('exploration'))[areaKey] + 1
     this.energyRequired = JSON.parse(localStorage.getItem('exploration')).dif ? Math.round((JSON.parse(localStorage.getItem('exploration')).dif / 10) + 1) : 1
     this.selectedDif = this.maxDifficulty
+    this.canGo = this.energyRequired > parseInt(localStorage.getItem('energy'))
   }
 
   difDecrease() {

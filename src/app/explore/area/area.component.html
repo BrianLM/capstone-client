@@ -18,12 +18,14 @@
       </div>
     </div>
 
-    <button *ngIf="exploring" class="action btn-success" (click)="takeAction('move')">
-      Move Forward ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)
+    <button *ngIf="exploring" class="action btn-success" [disabled]="canGo" (click)="takeAction('move')">
+      <span *ngIf="canGo">Insufficient Energy</span>
+      <span *ngIf="!canGo">Move Forward ( {{energyRequired}}  <i class="glyphicon glyphicon-flash"></i>)</span>
     </button>
 
-    <button *ngIf="inBattle" class="action btn-warning" (click)="takeAction('attack')">
-      Attack ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)
+    <button *ngIf="inBattle" class="action btn-warning" [disabled]="canGo" (click)="takeAction('attack')">
+      <span *ngIf="canGo">Insufficient Energy</span>
+      <span *ngIf="!canGo">Attack ( {{energyRequired}} <i class="glyphicon glyphicon-flash"></i>)</span>
     </button>
     <div *ngIf="inBattle" class="encounter">You encountered an opponent. Remaining Health: {{encounter}}</div>
   </div>
