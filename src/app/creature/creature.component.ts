@@ -16,6 +16,7 @@ export class CreatureComponent implements OnInit {
   statBase: any = null
   pointsUsed: number = 0
   canEvolve: boolean
+  confirmDestroy: boolean = false
 
   constructor(
     public router: Router,
@@ -34,6 +35,30 @@ export class CreatureComponent implements OnInit {
     } else {
       this.pointsAvailable = JSON.parse(localStorage.getItem('stat_points'))
     }
+  }
+
+  spawn() {
+    this.creatureService.createCreature()
+      .subscribe(
+        response => {
+          localStorage.setItem('creature', JSON.stringify(JSON.parse(response['_body']).creature))
+          this.router.navigate(['/home']).then(() => this.router.navigate(['/creature']))
+        }
+      )
+  }
+
+  getConfirmation() {
+    this.confirmDestroy = !this.confirmDestroy
+  }
+
+  despawn() {
+    this.creatureService.createCreature()
+      .subscribe(
+        response => {
+          localStorage.removeItem('creature')
+          this.router.navigate(['/home']).then(() => this.router.navigate(['/creature']))
+        }
+      )
   }
 
   allocate(stat) {

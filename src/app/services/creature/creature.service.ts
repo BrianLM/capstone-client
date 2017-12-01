@@ -26,6 +26,22 @@ export class CreatureService {
     this.creature = value
   }
 
+  createCreature() {
+    let config = {}
+    let creature = {'creature':{}}
+    creature['creature']['c_hp'] = 1
+
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.post(environment.apiOrigin + '/creatures', creature, config)
+  }
+
+  destroyCreature() {
+    let config = {}
+
+    config['headers'] = { Authorization:'Token token=' + localStorage.getItem('token')}
+    return this.http.delete(environment.apiOrigin + '/creatures', config)
+  }
+
   sendStatRequest(stat: string, amount:number) {
     let creature = {'creature':{}}
     creature['creature'][stat] = amount

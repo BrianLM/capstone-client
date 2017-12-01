@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="creature">
   <h4>Your creature</h4>
   <p *ngIf="pointsAvailable">You have {{pointsAvailable}} point<span *ngIf="pointsAvailable >1">s</span> you can allot.</p>
   <table class="table table-responsive table-hover">
@@ -152,9 +152,22 @@
   </tbody>
   </table>
   <button *ngIf="canAllot !== ''" class="btn btn-success" (click)="makeChange()">Save</button>
+  <div>
+    <h4>If you are not happy with your creature, you can send it away.</h4>
+    <button class="btn btn-danger" *ngIf="!confirmDestroy" (click)="getConfirmation()">Release your creature?</button>
+    <div *ngIf="confirmDestroy">Are you sure?</div>
+    <button class="btn btn-danger"  *ngIf="confirmDestroy" (click)="despawn()">Yes, release</button>
+    <button class="btn btn-success"  *ngIf="confirmDestroy" (click)="getConfirmation()">No, forget it</button>
+
+  </div>
 </div>
 <div class="container" *ngIf="canEvolve">
   <h4>Congratulations, your creature can evolve!</h4>
   <p>Evolution is a hard process on your creature, but it will be stronger in the long run. Current stats will drop slightly but it's maximum stats will increase.</p>
   <button class="btn btn-success" (click)="evolve()">Evolve now?</button>
+</div>
+
+<div *ngIf="!creature">
+  <h4>You do not have a creature.</h4>
+  <button class="btn btn-success" (click)="spawn()">Create a creature</button>
 </div>
