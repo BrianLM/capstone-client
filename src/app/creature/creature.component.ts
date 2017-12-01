@@ -34,6 +34,14 @@ export class CreatureComponent implements OnInit {
       this.router.navigate(['/home'])
     } else {
       this.pointsAvailable = JSON.parse(localStorage.getItem('stat_points'))
+
+      this.canEvolve = this.creature.c_hp === this.creature.m_hp &&
+                        this.creature.c_def === this.creature.m_def &&
+                        this.creature.c_dex === this.creature.m_dex &&
+                        this.creature.c_str === this.creature.m_str &&
+                        this.creature.c_spd === this.creature.m_spd &&
+                        this.creature.c_sig === this.creature.m_sig &&
+                        this.creature.c_int === this.creature.m_int
     }
   }
 

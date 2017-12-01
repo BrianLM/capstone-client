@@ -15,3 +15,7 @@ h4 {
 td {
   border-right: 1px solid black;
 }
+
+.glyphicon-question-sign {
+  color: blue;
+}

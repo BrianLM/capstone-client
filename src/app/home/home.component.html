@@ -4,3 +4,22 @@
 <div *ngIf="auth.getLocal('email') == null">
   <h2>Log in to start playing.</h2>
 </div>
+
+<div *ngIf="auth.getLocal('email')">
+  <h5>You will recover 1 energy every 3 minutes, or when you level.</h5>
+  <h5>Use the game bar above to visit an area.</h5>
+  <ul>
+    <li>
+      <p routerLink="/user"><strong>About You:</strong> Go here to see your gold, experience and what your maximum explorations are.</p>
+    </li>
+    <li>
+      <p routerLink="/explore"><strong>Explore:</strong> Set out in to one of the areas. You will only be able to explore while you have energy. Be careful, you will encounter enemies during your exploration. Make sure you creature is strong enough.</p>
+    </li>
+    <li>
+      <p routerLink="/farm"><strong>The Farm:</strong> Go here to find jobs to do while you have no energy. If there are no jobs ready, the farm will be closed.</p>
+    </li>
+    <li>
+      <p routerLink="/creature"><strong>Creature:</strong> Go here to see your creature. You can use the stat points you gain while leveling to make your creature stronger. If you are not happy with your current creature, you can release it and adopt a new one.</p>
+    </li>
+  </ul>
+</div>
